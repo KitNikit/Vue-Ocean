@@ -1,26 +1,37 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <Header :isDark="isDark" @toggleDark="setDark" />
+    <Section :isDark="isDark" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Header from './components/Header.vue';
+import Section from './components/Section.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld,
+    Header,
+    Section,
+  },
+  data() {
+    return {
+      isDark: false,
+    };
+  },
+  methods: {
+    setDark() {
+      this.isDark = !this.isDark;
+    },
   },
 };
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 </style>
