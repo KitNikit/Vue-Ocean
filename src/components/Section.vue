@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="{ dark: isDark }">
+  <div class="section" v-bind:class="{ dark: isDark }">
     <div class="main">
       <video muted autoplay loop src="@/assets/video.mp4"></video>
       <img class="mask" src="@/assets/mask.jpg" />
@@ -29,17 +29,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$black: #333;
-$white: #fff;
+.section {
+  --black: #333;
+  --white: #fff;
+}
 
 .dark {
+  --black: #fff;
+  --white: #333;
   .main {
-    h2 {
-      color: $black;
-    }
-    p {
-      color: $white;
-    }
     .mask {
       mix-blend-mode: multiply;
       filter: invert(1);
@@ -76,7 +74,7 @@ $white: #fff;
     position: relative;
     z-index: 1;
     font-size: 16vw;
-    color: $white;
+    color: var(--white);
     text-shadow: 0 20px 30px rgba(0, 0, 0, 0.7);
   }
   p {
@@ -85,7 +83,7 @@ $white: #fff;
     bottom: 40px;
     font-weight: 500;
     font-size: 1.2em;
-    color: $black;
+    color: var(--black);
   }
 }
 

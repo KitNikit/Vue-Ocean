@@ -1,5 +1,5 @@
 <template>
-  <div v-bind:class="{ dark: isDark }">
+  <div class="nav" v-bind:class="{ dark: isDark }">
     <header>
       <a href="#" class="logo">Logo</a>
       <div class="righSide">
@@ -44,25 +44,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$black: #333;
-$white: #fff;
+.nav {
+  --black: #333;
+  --white: #fff;
+}
 
 .dark {
-  .logo {
-    color: $white;
-  }
-  .navigation {
-    background: $black;
-    li {
-      a {
-        color: $white;
-      }
-    }
-    a:hover {
-      background: $white;
-      color: $black;
-    }
-  }
+  --black: #fff;
+  --white: #333;
 }
 
 header {
@@ -76,7 +65,7 @@ header {
   .logo {
     position: relative;
     display: inline-flex;
-    color: $black;
+    color: var(--black);
     text-decoration: none;
     font-size: 2em;
     font-weight: 700;
@@ -126,7 +115,7 @@ header {
   align-items: center;
   flex-direction: column;
   z-index: 2;
-  background: $white;
+  background: var(--white);
   transition: 0.5s;
   li {
     list-style: none;
@@ -135,12 +124,12 @@ header {
       margin: 5px 0;
       font-size: 1.25em;
       text-decoration: none;
-      color: $black;
+      color: var(--black);
       padding: 5px 20px;
       border-radius: 40px;
       &:hover {
-        background: $black;
-        color: $white;
+        background: var(--black);
+        color: var(--white);
       }
     }
   }
